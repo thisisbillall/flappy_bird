@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Score extends StatelessWidget {
   final score;
-
-  Score(this.score);
+  final best;
+  Score(this.score, this.best);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +45,7 @@ class Score extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                "0",
+                best.toString(),
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
