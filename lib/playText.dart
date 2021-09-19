@@ -6,12 +6,20 @@ class Play extends StatelessWidget {
   Play(this.text);
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-          color: Colors.indigo.shade800,
+      child: Container(
+        // color: Colors.lightBlue.shade100,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.indigo.shade800, width: 2),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Colors.indigo.shade800,
+          ),
         ),
       ),
     );

@@ -37,8 +37,9 @@ class _HomePageState extends State<HomePage> {
 
   int score = 0;
   int life = 3;
-  String dispText = "P L A Y";
+  String dispText = "PLAY";
   void startGame() {
+    dispText = "PLAY";
     isStarted = true;
     Timer.periodic(Duration(milliseconds: 50), (timer) {
       time += 0.04;
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
         poleColor = Colors.green.shade900;
         score = 0;
         life = 3;
-        dispText = "NEW GAME";
+        dispText = "NEW GAME?";
       }
 
       //Game over
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
           life--;
         }
       }
-      if (birdYasix > 1) {
+      if (birdYasix > 1 || birdYasix < -1.8) {
         timer.cancel();
         // birdYasix = -1;
         isStarted = false;
@@ -185,7 +186,9 @@ class _HomePageState extends State<HomePage> {
                           startGame();
                           jump();
                         },
-                        child: (life <= 0) ? Play("GAME OVER!") : Play("PLAY?"),
+                        child: (dispText == "NEW GAME?")
+                            ? Play("GAME OVER!")
+                            : Play("PLAY"),
                       ),
                     AnimatedContainer(
                       duration: Duration(milliseconds: 0),
