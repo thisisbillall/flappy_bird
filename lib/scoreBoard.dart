@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Score extends StatelessWidget {
   final score;
-  final best;
-  Score(this.score, this.best);
+  final life;
+
+  Score(this.score, this.life);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,13 +14,10 @@ class Score extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "SCORE",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              Icon(
+                Icons.attach_money,
+                color: Colors.amberAccent.shade700,
+                size: 50,
               ),
               SizedBox(height: 10),
               Text(
@@ -35,17 +33,14 @@ class Score extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "BEST",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: 50,
               ),
               SizedBox(height: 10),
               Text(
-                best.toString(),
+                life.toString(),
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
