@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   static double birdXasix = -1;
 
   bool isStarted = false;
+  bool disableTap = false;
   double time = 0;
   double initialHeight = birdYasix;
   double height = 0;
@@ -82,7 +83,6 @@ class _HomePageState extends State<HomePage> {
         score = 0;
         life = 3;
         dispText = "NEW GAME?";
-       
       }
 
       //Game over
@@ -91,6 +91,7 @@ class _HomePageState extends State<HomePage> {
         timer.cancel();
         // birdYasix = -1;
         isStarted = false;
+        disableTap = true;
         if (life == 0) {
           resetGame();
         } else {
@@ -102,6 +103,7 @@ class _HomePageState extends State<HomePage> {
         timer.cancel();
         // birdYasix = -1;
         isStarted = false;
+        disableTap = true;
         if (life == 0) {
           resetGame();
         } else {
@@ -153,13 +155,16 @@ class _HomePageState extends State<HomePage> {
       }
 
       return GestureDetector(
-        onTap: () {
-          if (isStarted) {
-            jump();
-          } else {
-            startGame();
-          }
-        },
+        onTap: (!disableTap)
+            ? () {
+                if (isStarted) {
+                  jump();
+                } else {
+                  startGame();
+                }
+              }
+            : null,
+
         //animated
 
         child: AnimatedContainer(
@@ -184,6 +189,7 @@ class _HomePageState extends State<HomePage> {
                     if (!isStarted)
                       GestureDetector(
                         onTap: () {
+                          disableTap = false;
                           startGame();
                           jump();
                         },
