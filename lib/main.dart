@@ -86,8 +86,8 @@ class _HomePageState extends State<HomePage> {
       }
 
       //Game over
-      if ((birdYasix >= barrierY && birdYasix - barrierY < 0.3) &&
-          barrierX - birdXasix < 0.2) {
+      if ((birdYasix >= barrierY && birdYasix - barrierY < 0.1) &&
+          (barrierX - birdXasix < 0.2)) {
         timer.cancel();
         // birdYasix = -1;
         isStarted = false;
@@ -205,11 +205,23 @@ class _HomePageState extends State<HomePage> {
                   ],
                 )),
             Expanded(
-                flex: 1,
+              flex: 1,
+              child: GestureDetector(
+                onTap: (!disableTap)
+                    ? () {
+                        if (isStarted) {
+                          jump();
+                        } else {
+                          startGame();
+                        }
+                      }
+                    : null,
                 child: Container(
                   color: Colors.green,
                   child: Score(score, life),
-                ))
+                ),
+              ),
+            )
           ],
         ),
       ),
