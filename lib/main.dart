@@ -82,6 +82,7 @@ class _HomePageState extends State<HomePage> {
         score = 0;
         life = 3;
         dispText = "NEW GAME?";
+       
       }
 
       //Game over
