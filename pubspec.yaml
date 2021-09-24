@@ -32,11 +32,17 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_native_splash: ^0.2.8
+  flutter_native_splash: ^0.2.1
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  image_path: "images/icon2.jpg" 
+  android: true
+  ios: true
 
 flutter_native_splash:
     color: "#ffffff"
-    image: images/splash.jpeg
+    image: images/bird.png
     android: true
     ios: true
 # For information on the generic Dart part of this file, see the
